@@ -6,18 +6,18 @@ import { BsSearch } from "react-icons/bs"
 import { BiCart } from "react-icons/bi"
 function Header() {
   return (
-<div className='header__container'>
+<div className='header__container_outer'>
 <div className='header__container_inner'>
      <div className='header__container__logo'>
              <a href="/">
               <img src={amazon_letter_logo} alt="amazon logo" />
             </a>
-            <div className='delivery'>
+            <div className='header__container__delivery'>
               <span>
               <SlLocationPin />
               </span>
               <div>
-                <p>Deliver href</p>
+                <p>Deliver to</p>
                 <span>Ethiopia</span>
               </div>
             </div>
@@ -40,33 +40,32 @@ function Header() {
  <div className='header__container_right_side'>
 
      <a href="/" className="header__container_language">
-<img
-                src="https://cdn.britannica.com/12/12-050-81DC7939/Flag-Ethiopia.jpg"
-                alt=""/>
+<img src="https://cdn.britannica.com/12/12-050-81DC7939/Flag-Ethiopia.jpg"alt=""/>
 <select name="" id="">
     <option value="">AM</option>
 </select>
  </a>
- <div>
+ <div className='header__container_sign'>
  <p>Hello, Sign In</p>
  <span>Account & Lists</span>
  </div>
- <a href="/orders">
+<div className="header__container_order">
+<a href="/orders">
               <p>returns</p>
               <span>& Orders</span>
             </a>
 
-            <a href="/cart" className={styles.cart}>
+</div>
+            <div className="header__container_cart">
+            <a href="/cart">
               <BiCart size={35} />
-              <span>hreftalItem</span>
+              <span>0</span>
             </a>
+            </div>
 
 </div>
-<h1>gggg</h1>
 </div>
-<h1>hhee</h1>
 </div>
-    
   )
 }
 
