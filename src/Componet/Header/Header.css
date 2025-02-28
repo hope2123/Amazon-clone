@@ -60,7 +60,9 @@
   background-color: #e6e6e6;
   border: none;
   padding: 10px;
-  outline: 1px solid white;
+  font-weight: bold;
+  outline: 10px solid white;
+  width: 60px;
 }
 .header__container__search svg{
   padding: 10px;
@@ -107,6 +109,7 @@
 }
 .header__container_cart{
   position: relative;
+  display: flex;
 }
 .header__container_cart span{
   position: absolute;
@@ -122,4 +125,23 @@
   border-radius: 20px;
   left: 14px;
   color: green;
+}
+.header__container__logo a:hover,
+.header__container__delivery:hover,
+.header__container_order:hover,
+.header__container_sign:hover,
+.header__container_cart:hover{
+  border: 2px solid white;
+  border-radius: 3px;
+  text-align: center;
+}
+@media screen and (max-width: 576px) {
+  .header__container_inner {
+    display: flex;
+    flex-direction: column !important;
+    height: auto;
+  }
+  .header__container_language {
+    display: none;
+  }
 }

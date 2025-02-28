@@ -4,9 +4,11 @@ import amazon_letter_logo from '../../assets/logo/amazon_letter_white_logo.png'
 import { SlLocationPin } from "react-icons/sl"
 import { BsSearch } from "react-icons/bs"
 import { BiCart } from "react-icons/bi"
+import Lower from './Lower'
 function Header() {
   return (
-<div className='header__container_outer'>
+    <section className='header__container_outer'>
+<div>
 <div className='header__container_inner'>
      <div className='header__container__logo'>
              <a href="/">
@@ -25,7 +27,7 @@ function Header() {
             
  <div className='header__container__search'>   
     <select name="" id="">
-    <option value="">All</option>
+              <option value="">All</option>
               <option value="">Art and crafts</option>
               <option value="">Auhrefmotive</option>
               <option value="">Books</option>
@@ -33,7 +35,7 @@ function Header() {
               <option value="">Software</option>
               <option value="">Baby</option>
         </select>
- <input type="text" placeholder='search product'/>
+ <input type="text" placeholder='search'/>
  <BsSearch size={42} />
  </div>
 
@@ -58,14 +60,18 @@ function Header() {
 </div>
             <div className="header__container_cart">
             <a href="/cart">
-              <BiCart size={35} />
+              <BiCart size={45} />
               <span>0</span>
+              
             </a>
+            <p>carts</p>
             </div>
 
 </div>
 </div>
 </div>
+<Lower />
+</section>
   )
 }
 

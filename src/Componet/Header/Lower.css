@@ -1,0 +1,28 @@
+.Lower__container_outer{
+    background-color: #232f3e;
+    padding-left: 20px;
+    color: white;
+}
+.Lower__container_inner ul{
+    display: flex;
+    list-style: none;
+    gap: 5px;
+}
+.Lower__container_inner ul li{
+    padding: 10px;
+}
+.Lower__container_inner ul li:hover{
+    cursor: pointer;
+    border: 1px solid white;
+  border-radius: 1px;
+}
+.Lower__container_out-line{
+    display: flex;
+    align-items: center;
+    gap: 1px;
+}
+@media screen and (max-width: 576px){
+    .Lower__container_inner ul li:not(:first-child) {
+        display: none;
+      }
+}
