@@ -12,6 +12,7 @@ return (
         infiniteLoop={true}
         showIndicators={false}
         showThumbs={false}
+        showStatus={false}
 >
 {img?.map((imageitem,i) => {
     console.log(imageitem)
