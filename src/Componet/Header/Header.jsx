@@ -1,6 +1,6 @@
 import React from 'react'
 import './Header.css'
-import amazon_letter_logo from '../../assets/logo/amazon_letter_white_logo.png'
+import amazon_letter_logo from '../../assets/image/logo/amazon_letter_white_logo.png'
 import { SlLocationPin } from "react-icons/sl"
 import { BsSearch } from "react-icons/bs"
 import { BiCart } from "react-icons/bi"
