@@ -1,4 +1,15 @@
+.Catagory__container{
+  position: relative;
+  max-width: 1400px;
+  padding: 30px;
+  margin: -20% auto auto auto;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  display: grid;
+  gap: 20px;
+  place-items: center;
+}
 
+/* ==============================================Catagory__container carde css=============================== */
 .CatagoryCard__container{
     padding: 5px;
     padding-top: 10px;
@@ -21,24 +32,14 @@
   }
   .CatagoryCard__container h2,
   .CatagoryCard__container p {
-    padding:3px 25px;
+    padding:3px 2px;
   }
   
-  .category h2{
+  .CatagoryCard__container h2{
     font-size: 1.2rem;
   }
-  .category p {
+  .CatagoryCard__container p {
     font-size: 12px;
     font-weight: bold;
     color: rgb(9, 132, 209);
   }
-.Catagory__container{
-    position: relative;
-    max-width: 1400px;
-    padding: 30px;
-    margin: -20% auto auto auto;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    display: grid;
-    gap: 20px;
-    place-items: center;
-}
