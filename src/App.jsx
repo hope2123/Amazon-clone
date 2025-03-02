@@ -1,17 +1,13 @@
 import React from 'react'
 import './App.css'
-import Header from './Componet/Header/Header'
-import Carouseleffect from './Componet/Carouseleffect/Carouseleffect'
-import Catagory from './Componet/Catagory/Catagory'
-import Product from './Componet/Product/Product'
+import { BrowserRouter } from 'react-router'
+ import Routing from './Router/Routing'
 function App() {
   return (
-    <>
-   <Header/>
-   <Carouseleffect/>
-   <Catagory />
-   <Product />
-    </>
+    <BrowserRouter>
+    <Routing />
+    </BrowserRouter>
+
   )
 }
 
