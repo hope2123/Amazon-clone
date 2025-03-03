@@ -1,4 +1,4 @@
-.Catagory__container{
+.category__container{
   position: relative;
   max-width: 1400px;
   padding: 30px;
@@ -9,8 +9,8 @@
   place-items: center;
 }
 
-/* ==============================================Catagory__container carde css=============================== */
-.CatagoryCard__container{
+/* ==============================================category__container carde css=============================== */
+.categoryCard__container{
     padding: 5px;
     padding-top: 10px;
     height: 300px;
@@ -18,27 +18,27 @@
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
-  .CatagoryCard__container a {
+  .categoryCard__container a {
     display: block;
     object-fit: fill;
     text-decoration: none;
     color: rgb(35, 35, 35);
   }
-  .CatagoryCard__container img {
+  .categoryCard__container img {
     width: 100%;
     object-fit: contain;
     max-height: 200px;
     margin: 10px auto;
   }
-  .CatagoryCard__container h2,
-  .CatagoryCard__container p {
+  .categoryCard__container h2,
+  .categoryCard__container p {
     padding:3px 2px;
   }
   
-  .CatagoryCard__container h2{
+  .categoryCard__container h2{
     font-size: 1.2rem;
   }
-  .CatagoryCard__container p {
+  .categoryCard__container p {
     font-size: 12px;
     font-weight: bold;
     color: rgb(9, 132, 209);

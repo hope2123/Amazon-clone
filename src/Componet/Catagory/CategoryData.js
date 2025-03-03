@@ -1,4 +1,4 @@
-export const CatagoryData = [
+export const CategoryData = [
     {
       title: "Electronics",
       name: "electronics",

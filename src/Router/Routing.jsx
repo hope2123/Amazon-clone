@@ -11,7 +11,7 @@ import Result from '../pages/Result/Result'
 import Productdetail from '../pages/ProductDetail/ProductDetail'
 function Routing() {
   return (
-  
+
 <Routes>
 <Route path="/" element={<Landing/>}/>
 <Route path="/auth" element={<Auth/>}/>
@@ -20,7 +20,7 @@ function Routing() {
 <Route path="*" element={<Page404/>}/>
 <Route path="/payment" element={<Payment/>}/>
 <Route path="/productdetail" element={<Productdetail/>}/>
-<Route path="/result" element={<Result/>}/>
+<Route path="/category/:categoryName" element={<Result/>} />
 </Routes>
   )
 }
