@@ -5,15 +5,16 @@ import { SlLocationPin } from "react-icons/sl"
 import { BsSearch } from "react-icons/bs"
 import { BiCart } from "react-icons/bi"
 import Lower from './Lower'
+import {Link } from 'react-router'
 function Header() {
   return (
     <section className='header__container_outer'>
 <div>
 <div className='header__container_inner'>
      <div className='header__container__logo'>
-             <a href="/">
+             <Link to="/">
               <img src={amazon_letter_logo} alt="amazon logo" />
-            </a>
+            </Link>
             <div className='header__container__delivery'>
               <span>
               <SlLocationPin />
@@ -29,7 +30,7 @@ function Header() {
     <select name="" id="">
               <option value="">All</option>
               <option value="">Art and crafts</option>
-              <option value="">Auhrefmotive</option>
+              <option value="">Automotive</option>
               <option value="">Books</option>
               <option value="">Electronics</option>
               <option value="">Software</option>
@@ -41,29 +42,31 @@ function Header() {
 
  <div className='header__container_right_side'>
 
-     <a href="/" className="header__container_language">
+     <Link to="/" className="header__container_language">
 <img src="https://cdn.britannica.com/12/12-050-81DC7939/Flag-Ethiopia.jpg"alt=""/>
 <select name="" id="">
     <option value="">AM</option>
 </select>
- </a>
+ </Link>
  <div className='header__container_sign'>
- <p>Hello, Sign In</p>
- <span>Account & Lists</span>
+<Link to="/auth">
+<p>Hello, Sign In</p>
+<span>Account & Lists</span>
+</Link>
  </div>
 <div className="header__container_order">
-<a href="/orders">
+<Link to="/order">
               <p>returns</p>
               <span>& Orders</span>
-            </a>
+            </Link>
 
 </div>
             <div className="header__container_cart">
-            <a href="/cart">
+            <Link to="/cart">
               <BiCart size={45} />
               <span>0</span>
               
-            </a>
+            </Link>
             <p>carts</p>
             </div>
 
