@@ -7,13 +7,13 @@ import { BaseURL } from '../../ApI/EndPoints'
 import ProductCard from '../../Componet/Product/ProductCard'
 function Result() {
   const { categoryName } = useParams();
-  const [Result, setResult] = useState([])
+  const [Result, setResult] = useState({})
 
   useEffect(() => {
-    axios.get(`${BaseURL}products/category/${categoryName}`)
+    axios.get(`${BaseURL}/products/category/${categoryName}`)
       .then(response => setResult(response.data))
       .catch(error => console.error(error));
-  }, [categoryName]); // Re-fetch when categoryName changes
+  }, []); // Re-fetch when categoryName changes
   
   return (
   
@@ -24,8 +24,8 @@ function Result() {
       <p>category{categoryName}</p></div>
       <hr />
       <div className = "Result_container">
-            {Result?.map((Productdata) => (
-              <ProductCard key={Productdata.id} Productdata={Productdata}
+            {Result?.map((product) => (
+              <ProductCard key={product.id} product={product}
               />
             ))}
           </div>
