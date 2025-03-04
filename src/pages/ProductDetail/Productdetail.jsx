@@ -5,26 +5,33 @@ import { useParams } from 'react-router'
 import axios from 'axios';
 import { BaseURL } from '../../ApI/EndPoints';
 import ProductCard from '../../Componet/Product/ProductCard';
+import Loader from '../../Componet/Loader/Loader';
 
 function Productdetail() {
   const { productId } = useParams();
  //console.log(productId)
   const [product, setProduct] = useState({})
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
+    setIsLoading(true);
     axios.get(`${BaseURL}/products/${productId}`)
     .then((res) => {
-      console.log(res.data, productId);
+      //console.log(res.data, productId);
       setProduct(res.data);
+      setIsLoading(false);
     })
     .catch((err) => {
       console.log(err);
+      setIsloading(false);
     });
 }, []);
   
   return (
     <Layout>
-     <h1>test</h1>
-     {<ProductCard product={product}/>}
+   
+     {
+     isLoading ?(<Loader/>):(<ProductCard product={product}/>) 
+      }
     </Layout>
     
   )
