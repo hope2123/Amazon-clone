@@ -54,3 +54,46 @@
   .ProductCard__container_price{
     font-weight: bold;
   }
+  .product__flexed {
+    box-shadow: none;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+  }
+  .product__flexed h3 {
+    padding: 20px 0px;
+    padding-left: 0 !important;
+  }
+  .product__flexed button {
+    display: block;
+    width: 250px;
+    margin-left: 300px;
+    margin-right: 40px;
+  }
+  .product__flexed:hover button{
+    display: block;
+  }
+  .product__flexed button{
+    display: none;
+  }
+  .product__flexed {
+    height: 50vh;
+  }
+  .product__flexed img {
+    width: 200px !important;
+    height: auto;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .product__flexed {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap:5px;
+      border-bottom: 1px solid grey;
+    }
+  }
+  

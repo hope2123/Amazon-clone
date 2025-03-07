@@ -22,7 +22,7 @@ function Productdetail() {
     })
     .catch((err) => {
       console.log(err);
-      setIsloading(false);
+      setIsLoading(false);
     });
 }, []);
   
@@ -30,7 +30,10 @@ function Productdetail() {
     <Layout>
    
      {
-     isLoading ?(<Loader/>):(<ProductCard product={product}/>) 
+     isLoading ?(<Loader/>):(<ProductCard product={product}
+      flex={true}
+          renderDesc={true}
+     />) 
       }
     </Layout>
     
