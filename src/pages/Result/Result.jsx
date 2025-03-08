@@ -13,14 +13,16 @@ function Result() {
   useEffect(() => {
     setIsloading(true);
     axios.get(`${BaseURL}/products/category/${categoryName}`)
-      .then(response => setResult(response.data))
+    .then((res) => {
+      console.log(res?.data);
+      setResult(res?.data);
       setIsloading(false);
     })
     .catch((err) => {
       console.log(err);
       setIsloading(false);
-  }, []); 
-  
+    });
+}, [categoryName]);
   return (
   
     <Layout>
@@ -34,7 +36,7 @@ function Result() {
           <Loader />
         ) : (<div className = "Result_container">
           {Result?.map((product) => (
-            <ProductCard key={product.id} product={product}
+            <ProductCard key={product?.id} product={product}renderAdd={true}renderDesc={false}
             />
           ))}
         </div>)}

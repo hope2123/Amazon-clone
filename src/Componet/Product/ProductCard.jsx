@@ -5,7 +5,7 @@ import Currency from '../Currency/Currency';
 import { Link } from 'react-router';
 import { DataContext } from '../DataProvider/DataProvider';
 import { Type } from '../../Utility/action.type';
-function ProductCard({product,flex, renderDesc}) {
+function ProductCard({product,flex,renderDesc,renderAdd}) {
   const {image, title, id, rating, price, description } = product;
 
 
@@ -42,7 +42,12 @@ function ProductCard({product,flex, renderDesc}) {
 </div>
  
 <div className='ProductCard__container_cart'>
+  {
+    renderAdd &&(
 <button type="" onClick={addToCart}>ADD TO CART</button>
+  )
+  }
+
 </div>
 
 

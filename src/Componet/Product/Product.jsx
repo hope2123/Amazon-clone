@@ -27,7 +27,7 @@ axios.get('https://fakestoreapi.com/products')
       ) : (<section className='Product__container'>
         {
         Products?.map((singleproduct) => {
-          return   <ProductCard product={singleproduct} key={singleproduct.id}/>
+          return   <ProductCard renderAdd={true} product={singleproduct} key={singleproduct.id}/>
         })
         }
         
