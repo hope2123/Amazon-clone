@@ -8,7 +8,7 @@ function Category() {
     <div className='category__container'>
       {
         CategoryData.map((index)=>(
-        <CategoryCard data = {index}/>
+        <CategoryCard key={index.name} data = {index}/>
         ))
       }
 

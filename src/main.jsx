@@ -10,5 +10,5 @@ createRoot(document.getElementById('root')).render(
    <DataProvider reducer={reducer} initialState={initialState}>
     <App />
   </DataProvider>
-  </StrictMode>,
+  </StrictMode>
 )

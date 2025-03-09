@@ -8,15 +8,15 @@ import ProductCard from '../../Componet/Product/ProductCard'
 import Loader from '../../Componet/Loader/Loader'
 function Result() {
   const { categoryName } = useParams();
-  const [Result, setResult] = useState({})
+  const [results, setResult] = useState()
   const [isLoading, setIsloading] = useState(false);
   useEffect(() => {
     setIsloading(true);
     axios.get(`${BaseURL}/products/category/${categoryName}`)
     .then((res) => {
-      console.log(res?.data);
-      setResult(res?.data);
-      setIsloading(false);
+      console.log(res.data)
+      setResult(res.data)
+      setIsloading(false)
     })
     .catch((err) => {
       console.log(err);
@@ -35,10 +35,14 @@ function Result() {
       {isLoading ? (
           <Loader />
         ) : (<div className = "Result_container">
-          {Result?.map((product) => (
-            <ProductCard key={product?.id} product={product}renderAdd={true}renderDesc={false}
-            />
-          ))}
+          {results?.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                renderDesc={false}
+                renderAdd={true}
+              />
+            ))}
         </div>)}
       
       </section>
