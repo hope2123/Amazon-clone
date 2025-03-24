@@ -15,7 +15,7 @@ return (
         showStatus={false}
 >
 {img?.map((imageitem,i) => {
-    console.log(imageitem)
+//console.log(imageitem)
     return <img key={i} src={imageitem}/>
 })}
 </Carousel>

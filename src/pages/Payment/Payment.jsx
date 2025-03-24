@@ -4,13 +4,20 @@ import ProductCard from "../../Componet/Product/ProductCard";
 import styles from "./payment.module.css";
 import { DataContext } from "../../Componet/DataProvider/DataProvider";
 import Currency from "../../Componet/Currency/Currency";
+import { ClipLoader } from "react-spinners";
+import { db } from "../../Utility/firebase";
 // for stripe checkout
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { axiosInstance } from "../../ApI/axios";
+import { useNavigate } from "react-router";
 
 
 function Payment() {
   const [{ user, basket }, dispatch] = useContext(DataContext);
+
   const [cardError, setCardError] = useState(null);
+  const [processing, setProcessing] = useState(false);
+  const navigate = useNavigate();
 
   //stripe hooks for checkout / payment confirmation
   const stripe = useStripe();
@@ -29,7 +36,47 @@ function Payment() {
     console.log(e?.error?.message);
     e?.error?.message ? setCardError(e?.error?.message) : setCardError("");
   };
+// payment handling function
+const handlePayment = async (e) => {
+  e.preventDefault();
 
+  try {
+ setProcessing(true);
+    // 1. backend || functions ---> contact to the client secret
+    const response = await axiosInstance({
+      method: "POST",
+      url: `/payment/create?total=${total *100}`,
+    });
+    console.log(response.data);
+    const clientSecret = response.data?.clientPaymentSecret;
+      // 2. client side (react side confirmation)
+      const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          // get card data from CardElement which is used by users
+          card: elements.getElement(CardElement),
+        },
+      });
+      //console.log(paymentIntent);
+      setProcessing(false);
+
+      // 3. after the confirmation --> order > clear basket
+      await db
+        .collection("users")
+        .doc(user.uid)
+        .collection("orders")
+        .doc(paymentIntent.id)
+        .set({
+          basket: basket,
+          amount: paymentIntent.amount,
+          created: paymentIntent.created,
+        });
+        setProcessing(false);
+      navigate("/order", { state: { msg: "you have placed new Order" } });
+  }catch (error) {
+    // console.log(error);
+    setProcessing(false);
+  }
+}
   return (
     <Layout>
       <div className={styles.payment__header}>Checkout ({totalItem}) items</div>
@@ -62,7 +109,7 @@ function Payment() {
           <h3>Payment methods</h3>
           <div className={styles.payment__card__container}>
             <div className={styles.payment__details}>
-            <form>
+            <form onSubmit={handlePayment}>
                {/* error */}
             {cardError && (
                   <small style={{ color: "red" }}>{cardError}</small>
@@ -77,7 +124,14 @@ function Payment() {
                     </span>
                   </div>
                   <button type="submit">
-                      Pay Now  
+                  {processing ? (
+                      <div className={styles.loading}>
+                        <ClipLoader color="gray" size={12} />
+                        <p>Please Wait ...</p>
+                      </div>
+                    ) : (
+                      " Pay Now"
+                    )}
                   </button>
                 </div>
               </form>
