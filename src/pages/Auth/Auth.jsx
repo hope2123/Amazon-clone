@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import  './Auth.css'
 import Layout from '../../Componet/Layout/Layout'
-import { Link, useNavigate } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 import amazon_letter_logo from "../../assets/image/logo/amazon_letter_logo.png"
 import { auth } from '../../Utility/firebase'
 import {signInWithEmailAndPassword,createUserWithEmailAndPassword,} from "firebase/auth";
@@ -21,6 +21,7 @@ function Auth() {
     //console.log(user)
     
   const navigate = useNavigate();
+  const navigationStateData = useLocation();
   //console.log(password, email)
   const authHandler =  async(e) => {
     e.preventDefault();
@@ -40,7 +41,7 @@ if (e.target.name == "signIn") {
             user: userInfo.user,
           });
           setLoading({ ...loading, signIn: false });
-          navigate("/");
+          navigate(navigationStateData?.state?.redirect || "/");
           })
           .catch((err) => {
            //  console.log(err);
@@ -57,7 +58,7 @@ if (e.target.name == "signIn") {
           user: userInfo.user,
         });
         setLoading({ ...loading, signUP: false });
-        navigate("/");
+        navigate(navigationStateData?.state?.redirect || "/");
 }).catch((err) => {
   //console.log(err);
   setError(err.message);
@@ -74,6 +75,16 @@ if (e.target.name == "signIn") {
 
       <div className="auth__signin_container">
         <h1>Sign In</h1>
+        {
+          <>
+            {
+              
+            navigationStateData?.state?.msg && (
+              <small style={{color:"red", fontWeight:"bold"}} >{navigationStateData?.state?.msg}</small>
+            )}
+            <br />
+          </>
+        }
         <form action="">
   <div>
     <label htmlFor="email">Email</label>

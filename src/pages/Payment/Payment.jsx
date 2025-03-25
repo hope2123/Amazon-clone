@@ -6,6 +6,7 @@ import { DataContext } from "../../Componet/DataProvider/DataProvider";
 import Currency from "../../Componet/Currency/Currency";
 import { ClipLoader } from "react-spinners";
 import { db } from "../../Utility/firebase";
+import { Type } from "../../Utility/action.type";
 // for stripe checkout
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { axiosInstance } from "../../ApI/axios";
@@ -70,6 +71,9 @@ const handlePayment = async (e) => {
           amount: paymentIntent.amount,
           created: paymentIntent.created,
         });
+        // empty the basket
+      dispatch({ type: Type.EMPTY_BASKET });
+      
         setProcessing(false);
       navigate("/order", { state: { msg: "you have placed new Order" } });
   }catch (error) {
