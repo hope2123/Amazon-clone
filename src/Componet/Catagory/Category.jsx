@@ -1,5 +1,5 @@
 import React from 'react'
-import './category.css'
+import './Category.css';
 import {CategoryData} from './CategoryData'
 import CategoryCard from './CategoryCard'
 function Category() {
